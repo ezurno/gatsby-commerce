@@ -1,11 +1,13 @@
 import React from "react";
+import Helmet from "../components/Helmet";
+import Layout from "../components/Layout";
 
-function Blog() {
+export default function Blog() {
   return (
-    <div>
-      <h1>Welcome to my Blog</h1>
-    </div>
+    <Layout title="Welcome to my blog!">
+      <h1></h1>
+    </Layout>
   );
 }
 
-export default Blog;
+export const Head = () => <Helmet title="BLOG" />;
