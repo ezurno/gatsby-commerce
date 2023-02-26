@@ -11,6 +11,7 @@ const config: GatsbyConfig = {
   graphqlTypegen: true, // graphQL 의 data를 자동으로 type 변환 해줌
   plugins: [
     "gatsby-plugin-styled-components",
+    `gatsby-plugin-mdx`, // mdx를 사용하기 위해 설치한 플러그인.
     {
       resolve: `gatsby-source-filesystem`,
       options: {
