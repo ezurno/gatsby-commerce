@@ -12,6 +12,9 @@ const config: GatsbyConfig = {
   plugins: [
     "gatsby-plugin-styled-components",
     `gatsby-plugin-mdx`, // mdx를 사용하기 위해 설치한 플러그인.
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
