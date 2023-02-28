@@ -8,7 +8,7 @@ export default function Blog({ data }: PageProps<Queries.contentDataQuery>) {
   // Queries 값은 정적으로 가져올때랑 동일한 방법으로 가져옴
   return (
     <Layout title="Welcome to my blog!">
-      <section>
+      <section className="grid">
         {data.allMdx.nodes.map((file, index) => (
           <article key={index}>
             <Link to={`/blog/${file.frontmatter?.slug}`}>
@@ -19,7 +19,6 @@ export default function Blog({ data }: PageProps<Queries.contentDataQuery>) {
               {file.frontmatter?.category}
             </h4>
             <h5>{file.frontmatter?.date}</h5>
-            <hr />
             <p>{file.excerpt}</p>
           </article>
         ))}

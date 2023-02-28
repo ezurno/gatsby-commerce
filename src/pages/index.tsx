@@ -7,18 +7,20 @@ import { graphql, Link, PageProps } from "gatsby";
 export default function IndexPage({ data }: PageProps<Queries.StickersQuery>) {
   return (
     <Layout title="Happy Shopping ... ! 👍">
-      {data.allContentfulStickerPack.nodes.map((sticker) => (
-        <article>
-          <GatsbyImage
-            image={getImage(sticker.preview?.gatsbyImageData!)!}
-            alt={sticker.name!}
-          />
-          <Link to={`/products/${sticker.id}`}>
-            <h2>{sticker.name}</h2>
-            <h4>${sticker.price}</h4>
-          </Link>
-        </article>
-      ))}
+      <div className="grid">
+        {data.allContentfulStickerPack.nodes.map((sticker) => (
+          <article>
+            <GatsbyImage
+              image={getImage(sticker.preview?.gatsbyImageData!)!}
+              alt={sticker.name!}
+            />
+            <Link to={`/products/${sticker.id}`}>
+              <h2>{sticker.name}</h2>
+              <h4>${sticker.price}</h4>
+            </Link>
+          </article>
+        ))}
+      </div>
     </Layout>
   );
 }
