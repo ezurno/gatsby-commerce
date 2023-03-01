@@ -6,22 +6,68 @@ import { graphql, Link, PageProps } from "gatsby";
 
 export default function IndexPage({ data }: PageProps<Queries.StickersQuery>) {
   return (
-    <Layout title="Happy Shopping ... ! 👍">
-      <div className="grid">
-        {data.allContentfulStickerPack.nodes.map((sticker) => (
-          <article>
-            <GatsbyImage
-              image={getImage(sticker.preview?.gatsbyImageData!)!}
-              alt={sticker.name!}
-            />
-            <Link to={`/products/${sticker.id}`}>
-              <h2>{sticker.name}</h2>
-              <h4>${sticker.price}</h4>
-            </Link>
-          </article>
-        ))}
-      </div>
-    </Layout>
+    <>
+      <Layout title="Happy Shopping ... ! 👍">
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: "repeat(4, 1fr)",
+          }}
+        >
+          {data.allContentfulStickerPack.nodes.map((sticker) => (
+            <article
+              style={{
+                maxHeight: " 500px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "stretch",
+                overflow: "hidden",
+              }}
+            >
+              <Link to={`/products/${sticker.id}`}>
+                <GatsbyImage
+                  image={getImage(sticker.preview?.gatsbyImageData!)!}
+                  alt={sticker.name!}
+                />
+                <h4
+                  style={{
+                    textAlign: "center",
+                    fontFamily: "'Shantell Sans', cursive",
+                  }}
+                >
+                  {sticker.name}
+                </h4>
+              </Link>
+
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  $ {sticker.price}
+                </span>
+                <div>
+                  <span className="material-symbols-outlined">add_box</span>
+
+                  <span className="material-symbols-outlined">
+                    shopping_cart
+                  </span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Layout>
+    </>
   );
 }
 

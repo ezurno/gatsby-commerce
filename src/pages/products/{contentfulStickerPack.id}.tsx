@@ -2,6 +2,7 @@ import { graphql, PageProps } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import Layout from "../../components/Layout";
+import "../../styles.css";
 
 export default function ProductDetail({
   data,
@@ -11,7 +12,13 @@ export default function ProductDetail({
   return (
     <Layout title={data.contentfulStickerPack?.name!}>
       <GatsbyImage image={image!} alt={data.contentfulStickerPack?.name!} />
-      <h2>${data.contentfulStickerPack?.price!}</h2>
+      <h2
+        style={{
+          fontFamily: "'Shantell Sans', cursive",
+        }}
+      >
+        ${data.contentfulStickerPack?.price!}
+      </h2>
     </Layout>
   );
 }

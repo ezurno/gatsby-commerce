@@ -3,6 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import Helmet from "../../components/Helmet";
 import Layout from "../../components/Layout";
+import "../../styles.css";
 
 interface IBlogDetailProps {
   data: Queries.detailDataQuery;
@@ -17,7 +18,13 @@ function BlogDetail({ data, children }: IBlogDetailProps) {
   return (
     <Layout title="Blog">
       <GatsbyImage image={image as any} alt={data.mdx?.frontmatter?.title!} />
-      <div>{children}</div>
+      <div
+        style={{
+          fontFamily: "'Shantell Sans', cursive",
+        }}
+      >
+        {children}
+      </div>
     </Layout>
   );
 }

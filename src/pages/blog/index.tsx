@@ -2,6 +2,7 @@ import { graphql, Link, PageProps } from "gatsby";
 import React from "react";
 import Helmet from "../../components/Helmet";
 import Layout from "../../components/Layout";
+import "../../styles.css";
 
 export default function Blog({ data }: PageProps<Queries.contentDataQuery>) {
   // PageProps라는 자체 interface를 가져와서 사용
@@ -12,13 +13,29 @@ export default function Blog({ data }: PageProps<Queries.contentDataQuery>) {
         {data.allMdx.nodes.map((file, index) => (
           <article key={index}>
             <Link to={`/blog/${file.frontmatter?.slug}`}>
-              <h3>{file.frontmatter?.title}</h3>
+              <h3
+                style={{
+                  fontFamily: "'Shantell Sans', cursive",
+                }}
+              >
+                {file.frontmatter?.title}
+              </h3>
             </Link>
-            <h4>
+            <h4
+              style={{
+                fontFamily: "'Shantell Sans', cursive",
+              }}
+            >
               Writter : {file.frontmatter?.author} in{" "}
               {file.frontmatter?.category}
             </h4>
-            <h5>{file.frontmatter?.date}</h5>
+            <h5
+              style={{
+                fontFamily: "'Shantell Sans', cursive",
+              }}
+            >
+              {file.frontmatter?.date}
+            </h5>
             <p>{file.excerpt}</p>
           </article>
         ))}
