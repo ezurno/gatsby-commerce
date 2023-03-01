@@ -1,5 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
+import { FaGithubSquare, FaHome, FaInfoCircle } from "react-icons/fa";
+import { MdRateReview } from "react-icons/md";
 
 export default function Nav() {
   return (
@@ -17,17 +19,23 @@ export default function Nav() {
       </ul>
       <ul>
         <li>
-          <Link to={"/"}>Home</Link>
+          <Link to={"/"}>
+            <FaHome size={36} />
+          </Link>
         </li>
         <li>
-          <Link to={"/about"}>About</Link>
+          <Link to={"/about"}>
+            <FaInfoCircle size={36} />
+          </Link>
         </li>
         <li>
-          <Link to={"/blog"}>Blog</Link>
+          <Link to={"/blog"}>
+            <MdRateReview size={36} />
+          </Link>
         </li>
         <li>
-          <a href="#" role="button">
-            Button
+          <a href="https://github.com/ezurno/gatsby-commerce">
+            <FaGithubSquare size={36} />
           </a>
         </li>
       </ul>
