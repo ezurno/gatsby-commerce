@@ -8,27 +8,17 @@ export default function Blog({ data }: PageProps<Queries.contentDataQuery>) {
   // PageProps라는 자체 interface를 가져와서 사용
   // Queries 값은 정적으로 가져올때랑 동일한 방법으로 가져옴
   return (
-    <Layout title="Welcome to my blog!">
+    <Layout title="Welcome!  our customer's gest book">
       <section className="grid">
         {data.allMdx.nodes.map((file, index) => (
-          <article key={index}>
-            <Link to={`/blog/${file.frontmatter?.slug}`}>
-              <h3
-                style={{
-                  fontFamily: "'Shantell Sans', cursive",
-                }}
-              >
-                {file.frontmatter?.title}
-              </h3>
-            </Link>
-            <h4
-              style={{
-                fontFamily: "'Shantell Sans', cursive",
-              }}
-            >
-              Writter : {file.frontmatter?.author} in{" "}
-              {file.frontmatter?.category}
-            </h4>
+          <article
+            key={index}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
             <h5
               style={{
                 fontFamily: "'Shantell Sans', cursive",
@@ -36,7 +26,25 @@ export default function Blog({ data }: PageProps<Queries.contentDataQuery>) {
             >
               {file.frontmatter?.date}
             </h5>
-            <p>{file.excerpt}</p>
+            <Link to={`/blog/${file.frontmatter?.slug}`}>
+              <h4
+                style={{
+                  fontFamily: "'Shantell Sans', cursive",
+                }}
+              >
+                {file.frontmatter?.title}
+              </h4>
+              <p>{file.excerpt}</p>
+            </Link>
+
+            <h5
+              style={{
+                fontFamily: "'Shantell Sans', cursive",
+              }}
+            >
+              Writter : {file.frontmatter?.author} in{" "}
+              {file.frontmatter?.category}
+            </h5>
           </article>
         ))}
       </section>

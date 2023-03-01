@@ -17,7 +17,7 @@ export default function ProductDetail({
           fontFamily: "'Shantell Sans', cursive",
         }}
       >
-        ${data.contentfulStickerPack?.price!}
+        <br />$ {data.contentfulStickerPack?.price!}
       </h2>
     </Layout>
   );

@@ -23,6 +23,7 @@ export default function IndexPage({ data }: PageProps<Queries.StickersQuery>) {
                 justifyContent: "space-between",
                 alignItems: "stretch",
                 overflow: "hidden",
+                borderRadius: "15px",
               }}
             >
               <Link to={`/products/${sticker.id}`}>

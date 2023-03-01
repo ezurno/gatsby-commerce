@@ -21,6 +21,10 @@ function BlogDetail({ data, children }: IBlogDetailProps) {
       <div
         style={{
           fontFamily: "'Shantell Sans', cursive",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          alignItems: "stretch",
         }}
       >
         {children}

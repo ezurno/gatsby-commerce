@@ -14,7 +14,7 @@ export default function Nav() {
     >
       <ul>
         <li>
-          <strong>Brand</strong>
+          <strong>STICKERS-COMMERCE</strong>
         </li>
       </ul>
       <ul>
@@ -24,15 +24,16 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link to={"/about"}>
-            <FaInfoCircle size={36} />
-          </Link>
-        </li>
-        <li>
           <Link to={"/blog"}>
             <MdRateReview size={36} />
           </Link>
         </li>
+        <li>
+          <Link to={"/about"}>
+            <FaInfoCircle size={36} />
+          </Link>
+        </li>
+
         <li>
           <a href="https://github.com/ezurno/gatsby-commerce">
             <FaGithubSquare size={36} />
